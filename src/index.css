@@ -1,0 +1,94 @@
+/* ── Design-system tokens ── */
+:root {
+  /* Fonts */
+  --font-pixel: 'Silkscreen', cursive;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Palette — reference design spec */
+  --color-accent: #FF4000;
+  --color-accent-hover: #E63800;
+  --color-foreground: #0E002D;
+  --color-surface: #f2f2f2;
+  --color-card: #FFFFFF;
+  --color-divider: #dcdcdc;
+  --color-muted: #737373;
+  --color-blue: #135BD7;
+
+  /* Grid */
+  --grid-size: 24px;
+  --grid-color: rgba(0, 0, 0, 0.06);
+
+  /* Raised-button offset */
+  --raise: 3px;
+
+  /* Type scale — fluid */
+  --heading-1: clamp(28px, 5vw, 36px);
+  --heading-2: clamp(22px, 3.5vw, 30px);
+  --heading-3: clamp(18px, 2.5vw, 24px);
+  --large-copy: clamp(16px, 2vw, 20px);
+  --body-copy: 15px;
+  --small-copy: 13px;
+  --label: 10px;
+
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--body-copy);
+  line-height: 1.6;
+  color: var(--color-foreground);
+  background-color: var(--color-surface);
+  overflow-x: hidden;
+}
+
+/* Canvas renders the animated grid — no CSS background-image needed */
+
+#root {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+::selection {
+  background: rgba(255, 64, 0, 0.18);
+}
+
+/* Fade-in-up animation for scroll reveals */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-section {
+  opacity: 0;
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* stagger delays applied via inline style */
