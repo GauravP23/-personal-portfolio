@@ -142,26 +142,26 @@ function App() {
           <div className="projects-grid">
             {projects.map((p) => (
               <article className="project-item" key={p.title}>
-                <p className="project-num">{p.num}</p>
-                <h3 className="project-title">{p.title}</h3>
-                <p className="project-desc">{p.desc}</p>
-
                 <div className="project-image">
                   <img src={p.image} alt={`${p.title} screenshot`} />
                 </div>
-
-                <div className="project-stack">
-                  {p.stack.map((t) => (
-                    <span className="stack-tag" key={t}>{t}</span>
-                  ))}
-                </div>
-                <div className="project-actions">
-                  <a className="project-btn" href={p.github} target="_blank" rel="noreferrer">
-                    <GitHubIcon /> GitHub
-                  </a>
-                  <a className="project-btn" href={p.live} target="_blank" rel="noreferrer">
-                    <ExternalIcon /> Live
-                  </a>
+                <div className="project-body">
+                  <p className="project-num">{p.num}</p>
+                  <h3 className="project-title">{p.title}</h3>
+                  <p className="project-desc">{p.desc}</p>
+                  <div className="project-stack">
+                    {p.stack.map((t) => (
+                      <span className="stack-tag" key={t}>{t}</span>
+                    ))}
+                  </div>
+                  <div className="project-actions">
+                    <a className="project-btn" href={p.github} target="_blank" rel="noreferrer">
+                      <GitHubIcon /> GitHub
+                    </a>
+                    <a className="project-btn" href={p.live} target="_blank" rel="noreferrer">
+                      <ExternalIcon /> Live
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}
